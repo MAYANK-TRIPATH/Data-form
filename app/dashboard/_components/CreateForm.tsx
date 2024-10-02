@@ -12,15 +12,47 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { AiChatSession } from "@/configs/AiModal";
+import { JsonForms } from "@/configs/schema";
+import { create } from "domain";
+import { useUser } from '@clerk/nextjs';
+import { db } from "@/configs";
+import moment from 'moment';
+
+
+
+
+const PROMPT = "On the basis of Description please give me form in json format with the form title, form subtitle and with form having Form Field, form name, placeholder name, and form label, field type, field required in json format"
 
 export default function CreateForm() {
 
   const [openDialog, setOpenDialog] = useState(false);
   const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] = useState();
+  const {user}  = useUser();
 
-  const onCreateForm = () => {
-      console.log(userInput);
-      setOpenDialog(false); // Close dialog after form creation
+  const onCreateForm = async() => {
+   //   console.log(userInput);
+      setLoading(true);
+      setOpenDialog(false); 
+
+      const result = await AiChatSession.sendMessage("Desription"+userInput+PROMPT);
+      console.log(result.response.text());
+      if(result.response.text())
+      {
+        const resp = await db.insert(JsonForms)
+        .values({
+            jsonform: result.response.text(),
+            createdBy:user?.primaryEmailAddress?.emailAddress,
+            createdAt:moment().format("DD/MM/YYYY"),
+            
+        }).returning({id:JsonForms.id});
+
+
+        console.log("New Form Id", resp[0].id);
+        setLoading(false);
+      }
+      setLoading(false);
   };
 
   return (

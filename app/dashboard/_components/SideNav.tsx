@@ -35,7 +35,7 @@ export default function SideNav() {
 
   const path = usePathname();
   useEffect(() => {
-    console.log(path.includes('responses') !==-1);
+    console.log(path.includes('responses') );
   },[path])
 
 
