@@ -18,6 +18,7 @@ import { create } from "domain";
 import { useUser } from '@clerk/nextjs';
 import { db } from "@/configs";
 import moment from 'moment';
+import { useRouter } from "next/navigation";
 
 
 
@@ -30,6 +31,7 @@ export default function CreateForm() {
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState();
   const {user}  = useUser();
+  const route = useRouter();
 
   const onCreateForm = async() => {
    //   console.log(userInput);
@@ -50,6 +52,12 @@ export default function CreateForm() {
 
 
         console.log("New Form Id", resp[0].id);
+        if(resp[0].id)
+        {
+            route.push('/edit-form/'+resp[0].id);
+        }
+
+        
         setLoading(false);
       }
       setLoading(false);
