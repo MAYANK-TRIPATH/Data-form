@@ -23,7 +23,28 @@ import { useRouter } from "next/navigation";
 
 
 
-const PROMPT = "On the basis of Description please give me form in json format with the form title, form subtitle and with form having Form Field, form name, placeholder name, and form label, field type, field required in json format"
+const PROMPT = `
+Based on the following description, generate a JSON structure for a form. 
+The structure should contain the following:
+
+{
+  "title": "string",  // Title of the form
+  "subtitle": "string",  // Subtitle of the form
+  "fields": [
+    {
+      "name": "string",  // Field name
+      "label": "string",  // Field label
+      "type": "text | email | number | date | select | checkbox | textarea",  // Field type
+      "placeholder": "string",  // Placeholder text
+      "required": true/false,  // Is the field required?
+      "options": [{"label": "string", "value": "string"}]  // For select type fields
+    }
+  ]
+}
+
+Use this exact format, and generate appropriate field types, labels, and placeholders based on the description.
+`;
+
 
 export default function CreateForm() {
 
