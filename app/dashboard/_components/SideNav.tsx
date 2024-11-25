@@ -1,11 +1,16 @@
+"use-client";
+
 import { Button } from "@/components/ui/button";
 import { LibraryBig, LineChart, MessageSquare, Shield } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 
 export default function SideNav() {
+
+const [openDialog, setOpenDialog] = useState(false);
+
   const menuList = [
     {
       id: 1,
@@ -40,6 +45,7 @@ export default function SideNav() {
 
 
   return (
+    
     <div className="h-screen shadow-md border border-gray-600 rounded-lg">
       <div className="p-5">
         {menuList.map((menu, index) => (
@@ -53,7 +59,10 @@ export default function SideNav() {
         ))}
       </div>
         <div className="fixed bottom-20 ml-6 p-6 w-64 block w-full rounded border border-blue-600 bg-blue-600 px-6 py-3 text-lg font-bold text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
-          <Button className="w-full">
+          
+          <Button 
+          onClick={() => setOpenDialog(true)}
+          className="w-full">
             + Create Form
           </Button>
         </div>

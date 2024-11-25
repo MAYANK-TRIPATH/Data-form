@@ -14,12 +14,12 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen items-center justify-center">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="mb-8 text-4xl font-extrabold text-white sm:text-6xl">
-            Forms Made Easy,{" "}
-            <span className="relative">
+            Forms Made Easy  <br></br> 
+            <span>
               <span className="relative z-10 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 bg-clip-text text-transparent">
                 Data Done Right
               </span>
-              <span className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 transform -skew-x-12"></span>
+              {/* <span className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 transform -skew-x-12"></span> */}
             </span>
           </h1>
 

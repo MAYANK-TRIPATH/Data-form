@@ -6,7 +6,7 @@ import { SignInButton, UserButton, useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 
 export default function Header() {
-    const { user, isSignedIn } = useUser();
+    const { isSignedIn } = useUser();
 
     return (
         <header className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white shadow-lg">
@@ -64,7 +64,7 @@ export default function Header() {
                                             />
                                         </svg>
                                     </span>
-                                    <span className="group-hover:pr-5 transition-all rounded-lg">Get Started</span>
+                                    <span className="group-hover:pr-5 transition-all rounded-2xl">Get Started</span>
                                 </Button>
                             </SignInButton>
                         )}
