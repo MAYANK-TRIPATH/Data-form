@@ -23,7 +23,7 @@ export default function Header() {
                         {isSignedIn ? (
                             <>
                                 <Link href="/dashboard">
-                                    <Button className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out">
+                                    <Button className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out">
                                         <span>Dashboard</span>
                                         <svg 
                                             className="ml-2 -mr-0.5 h-4 w-4" 
@@ -49,7 +49,7 @@ export default function Header() {
                             </>
                         ) : (
                             <SignInButton>
-                                <Button className="relative overflow-hidden inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out group">
+                                <Button className="relative overflow-hidden inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out group">
                                     <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
                                         <svg 
                                             className="h-5 w-5" 
@@ -64,7 +64,7 @@ export default function Header() {
                                             />
                                         </svg>
                                     </span>
-                                    <span className="group-hover:pr-5 transition-all rounded-2xl">Get Started</span>
+                                    <span className="group-hover:pr-5 transition-all rounded-5xl">Get Started</span>
                                 </Button>
                             </SignInButton>
                         )}
